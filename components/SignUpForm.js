@@ -98,7 +98,7 @@ export default function SignUpForm({
               </button>
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-medium text-center font text-background">
+              <span className="divider font-medium text-center font text-background">
                 Or continue with
               </span>
               <GoogleButton className="mt-4" onClick={googleClick} />
