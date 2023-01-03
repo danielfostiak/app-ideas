@@ -5,7 +5,6 @@ import Link from "next/link";
 import { UserContext } from "../lib/context";
 import { auth } from "../lib/firebase";
 import { useRouter } from "next/router";
-//cooy
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
