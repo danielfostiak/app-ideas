@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <h1 className="text-3xl font-bold">Home page</h1>
+      <h1 className="text-3xl font-bold text-center">Home page</h1>
     </>
   );
 }
