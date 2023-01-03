@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@next/font": "13.1.1",
+    "@tailwindcss/typography": "^0.5.8",
     "firebase": "^9.15.0",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
