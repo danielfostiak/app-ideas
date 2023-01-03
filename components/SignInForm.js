@@ -12,7 +12,7 @@ export default function SignInForm({ googleClick }) {
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt="Your Company"
             />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-50">
               Sign in to your account
             </h2>
           </div>
@@ -59,7 +59,7 @@ export default function SignInForm({ googleClick }) {
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
+                  className="ml-2 block text-sm text-gray-50"
                 >
                   Remember me
                 </label>
@@ -90,7 +90,7 @@ export default function SignInForm({ googleClick }) {
               </button>
             </div>
             <div className="flex flex-col items-center">
-              <span className=" text-center text-gray-600">
+              <span className=" text-center font text-gray-50">
                 Or continue with
               </span>
               <GoogleButton className="mt-4" onClick={googleClick} />
