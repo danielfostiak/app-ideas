@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <UserContext.Provider value={userData}>
-      <Navbar currentPage={"Home"} />
+      <Navbar />
       <Component {...pageProps} />
     </UserContext.Provider>
   );

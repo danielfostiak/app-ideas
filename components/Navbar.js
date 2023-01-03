@@ -22,7 +22,7 @@ export default function Navbar() {
   const [currentPage] = navigation.filter((obj) => obj.href === asPath);
 
   return (
-    <Disclosure as="nav" className="bg-gray-800 shadow-xl">
+    <Disclosure as="nav" className="bg-background shadow-xl">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -42,12 +42,12 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src="/logo.png"
                     alt="Your Company"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src="/logo.png"
                     alt="Your Company"
                   />
                 </div>
@@ -59,8 +59,8 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item?.name === currentPage?.name
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            ? "bg-comment text-gray-50"
+                            : "text-gray-50 hover:bg-darkercomment hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -75,7 +75,7 @@ export default function Navbar() {
                 {user ? (
                   <button
                     type="button"
-                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="rounded-full bg-comment p-1 text-gray-400 hover:text-yellow focus:outline-none  "
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -98,7 +98,7 @@ export default function Navbar() {
                       <Link href={"/enter"}>
                         <button
                           type="submit"
-                          className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          className="group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm font-medium text-background hover:bg-darkergreen focus:outline-none focus:ring-2 focus:ring-darkergreen focus:ring-offset-2"
                         >
                           Sign up
                         </button>
@@ -118,10 +118,10 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href={`/${username}`}
+                            href={username ? `/${username}` : "/enter"}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm  text-gray-700"
                             )}
                           >
                             Your Profile

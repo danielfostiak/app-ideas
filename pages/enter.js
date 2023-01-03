@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import SignInForm from "../components/SignInForm";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/router";
+import SignUpForm from "../components/SignUpForm";
 
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
@@ -15,10 +16,13 @@ export default function Enter(props) {
     });
   }
 
-  return <main>{user ? !username ? <UsernameForm /> : null : <SignIn />}</main>;
+  return (
+    <main>{user ? !username ? <UsernameForm /> : null : <SignInOrUp />}</main>
+  );
 }
 
-function SignIn() {
+function SignInOrUp() {
+  const [signingIn, setSigningIn] = useState(false); // true -> signIn, false -> signUp
   const signInWithGoogle = async () => {
     try {
       await auth.signInWithPopup(googleAuthProvider);
@@ -27,7 +31,40 @@ function SignIn() {
     }
   };
 
-  return <SignInForm googleClick={signInWithGoogle} />;
+  const signUpWithEmail = async (email, password, password2) => {
+    if (!password || password !== password2) return;
+    try {
+      await auth.createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const signInWithEmail = async (email, password) => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  return (
+    <>
+      {signingIn ? (
+        <SignInForm
+          toggleSignIn={() => setSigningIn(!signingIn)}
+          googleClick={signInWithGoogle}
+          signInWithEmail={signInWithEmail}
+        />
+      ) : (
+        <SignUpForm
+          toggleSignIn={() => setSigningIn(!signingIn)}
+          googleClick={signInWithGoogle}
+          signUpWithEmail={signUpWithEmail}
+        />
+      )}
+    </>
+  );
 }
 
 function UsernameForm() {
@@ -101,7 +138,7 @@ function UsernameForm() {
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt="Your Company"
             />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-50">
               Choose your username
             </h2>
           </div>
@@ -151,11 +188,17 @@ function UsernameForm() {
 
 function UsernameMessage({ username, isValid, loading }) {
   if (loading) {
-    return <span className="text-center">Checking...</span>;
+    return <span className=" text-gray-50 text-center">Checking...</span>;
   } else if (isValid) {
-    return <span className="text-center">{username} is available!</span>;
+    return (
+      <span className="text-gray-50 text-center ">
+        {username} is available!
+      </span>
+    );
   } else if (username && !isValid) {
-    return <span className="text-center">That username is taken!</span>;
+    return (
+      <span className="text-gray-50 text-center">That username is taken!</span>
+    );
   } else {
     return <span></span>;
   }
