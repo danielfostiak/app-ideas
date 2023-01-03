@@ -4,21 +4,23 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { UserContext } from "../lib/context";
 import { auth } from "../lib/firebase";
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar({ currentPage }) {
+export default function Navbar() {
   const { user, username } = useContext(UserContext);
-  console.log(user);
-
+  const { asPath } = useRouter();
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Explore", href: "/explore" },
     { name: "Your Ideas", href: "/daniel/ideas" },
     { name: "Messages", href: "/messages" },
   ];
+  const [currentPage] = navigation.filter((obj) => obj.href === asPath);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -56,7 +58,7 @@ export default function Navbar({ currentPage }) {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.name === currentPage
+                          item?.name === currentPage?.name
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
@@ -116,7 +118,7 @@ export default function Navbar({ currentPage }) {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="#"
+                            href={`/${username}`}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -129,7 +131,7 @@ export default function Navbar({ currentPage }) {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="#"
+                            href={`/${username}`}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
