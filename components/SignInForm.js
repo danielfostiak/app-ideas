@@ -51,7 +51,7 @@ export default function SignInForm({
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green focus:outline-none focus:ring-darkergreen sm:text-sm"
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange focus:outline-none focus:ring-orange sm:text-sm"
                   placeholder="Email address"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -66,7 +66,7 @@ export default function SignInForm({
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green focus:outline-none focus:ring-darkergreen sm:text-sm"
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-purple focus:outline-none focus:ring-purple sm:text-sm"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -79,18 +79,18 @@ export default function SignInForm({
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-orange focus:ring-lightorange"
+                  className="h-4 w-4 rounded border-gray-300 text-blue focus:ring-blue"
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm font-medium text-purple"
+                  className="ml-2 block text-sm font-medium text-blue"
                 >
                   Remember me
                 </label>
               </div>
 
               <div className="text-sm">
-                <a className="font-medium text-purple hover:text-darkerpurple">
+                <a className="font-medium text-red hover:text-darkerred">
                   Forgot your password?
                 </a>
               </div>

@@ -51,7 +51,7 @@ export default function SignUpForm({
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green focus:outline-none focus:ring-darkergreen sm:text-sm"
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange focus:outline-none focus:ring-orange sm:text-sm"
                   placeholder="Email address"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -66,7 +66,7 @@ export default function SignUpForm({
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green focus:outline-none focus:ring-darkergreen sm:text-sm"
+                  className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue focus:outline-none focus:ring-blue sm:text-sm"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -81,7 +81,7 @@ export default function SignUpForm({
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green focus:outline-none focus:ring-darkergreen sm:text-sm"
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red focus:outline-none focus:ring-red sm:text-sm"
                   placeholder="Confirm Password"
                   onChange={(e) => setPassword2(e.target.value)}
                 />
