@@ -32,7 +32,7 @@ export default function SignUpForm({
             <div className="text-sm text-center mt-4">
               <a
                 onClick={toggleSignIn}
-                className="font-medium text-purple hover:text-darkerpurple"
+                className="font-medium text-purple hover:text-darkerpurple hover:underline"
               >
                 Already signed up? Sign in
               </a>

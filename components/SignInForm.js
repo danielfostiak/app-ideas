@@ -32,7 +32,7 @@ export default function SignInForm({
             <div className="text-sm text-center mt-4">
               <a
                 onClick={toggleSignIn}
-                className="font-medium text-purple hover:text-darkerpurple"
+                className="font-medium text-purple hover:text-darkerpurple hover:underline"
               >
                 New here? Create and account.
               </a>
@@ -90,7 +90,7 @@ export default function SignInForm({
               </div>
 
               <div className="text-sm">
-                <a className="font-medium text-red hover:text-darkerred">
+                <a className="font-medium text-red hover:text-darkerred hover:underline">
                   Forgot your password?
                 </a>
               </div>

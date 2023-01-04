@@ -23,10 +23,12 @@ export default function Enter(props) {
 
 function SignInOrUp() {
   const [signingIn, setSigningIn] = useState(false); // true -> signIn, false -> signUp
+  const [error, setError] = useState("");
   const signInWithGoogle = async () => {
     try {
       await auth.signInWithPopup(googleAuthProvider);
     } catch (error) {
+      console.log(error);
       alert(error.message);
     }
   };
@@ -36,6 +38,7 @@ function SignInOrUp() {
     try {
       await auth.createUserWithEmailAndPassword(email, password);
     } catch (error) {
+      console.log(error);
       alert(error.message);
     }
   };

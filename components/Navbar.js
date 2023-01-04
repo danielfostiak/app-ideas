@@ -100,7 +100,7 @@ export default function Navbar() {
                       <Link href={"/enter"}>
                         <button
                           type="submit"
-                          className="group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm font-medium text-background hover:bg-darkergreen focus:outline-none focus:ring-2 focus:ring-darkergreen focus:ring-offset-2"
+                          className="group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm font-medium text-background hover:bg-darkergreen "
                         >
                           Sign up
                         </button>
