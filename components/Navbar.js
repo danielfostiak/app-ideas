@@ -59,9 +59,11 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={
-                          item.name === "Your Ideas" && user
-                            ? item.href
-                            : "/enter"
+                          item.name === "Your Ideas"
+                            ? user
+                              ? item.href
+                              : "/enter"
+                            : item.href
                         }
                         className={classNames(
                           item?.name === currentPage?.name
