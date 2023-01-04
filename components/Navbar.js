@@ -18,7 +18,7 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Explore", href: "/explore" },
-    { name: "Your Ideas", href: "/daniel/ideas" },
+    { name: "Your Ideas", href: `/${username}/ideas` },
     { name: "Messages", href: "/messages" },
   ];
   const [currentPage] = navigation.filter((obj) => obj.href === asPath);
@@ -58,7 +58,11 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href}
+                        href={
+                          item.name === "Your Ideas" && user
+                            ? item.href
+                            : "/enter"
+                        }
                         className={classNames(
                           item?.name === currentPage?.name
                             ? "bg-comment"
