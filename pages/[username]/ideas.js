@@ -1,7 +1,29 @@
+import Sidebar from "../../components/Sidebar";
+import { getUserWithUsername } from "../../lib/firebase";
+
+export async function getServerSideProps({ query }) {
+  const { username } = query;
+  const userDoc = await getUserWithUsername(username);
+  console.log(userDoc);
+
+  if (!userDoc) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      id: "1",
+    },
+  };
+}
+
 export default function Messages() {
+  // getStaticPathsDummy();
   return (
-    <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-background md:text-5xl lg:text-6xl dark:text-white">
-      Your Ideas
-    </h1>
+    <>
+      <Sidebar />
+    </>
   );
 }
