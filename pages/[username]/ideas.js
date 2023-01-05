@@ -1,3 +1,6 @@
+import { useState, useContext, useEffect } from "react";
+import { UserContext } from "../../lib/context";
+import CreateIdea from "../../components/CreateIdea";
 import Sidebar from "../../components/Sidebar";
 import { getUserWithUsername, ideaToJSON } from "../../lib/firebase";
 
@@ -25,11 +28,23 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-export default function Messages({ user, ideas }) {
-  // getStaticPathsDummy();
+export default function Ideas({ user, ideas }) {
+  const { username } = useContext(UserContext);
+  const [creating, setCreating] = useState(true);
+
+  const toggleCreating = () => {
+    setCreating(!creating);
+  };
+
   return (
-    <>
-      <Sidebar userData={user} ideas={ideas} />
-    </>
+    <div>
+      <Sidebar
+        userData={user}
+        ideas={ideas}
+        setCreating={setCreating}
+        toggleCreating={toggleCreating}
+      />
+      {creating && username == user.username ? <CreateIdea /> : null}
+    </div>
   );
 }
