@@ -19,7 +19,7 @@ export async function getServerSideProps({ query }) {
 
   if (userDoc) {
     user = userDoc.data();
-    const ideasQuery = userDoc.ref.collection("ideas").limit(5);
+    const ideasQuery = userDoc.ref.collection("ideas");
     ideas = (await ideasQuery.get()).docs.map(ideaToJSON);
   }
 
