@@ -18,7 +18,7 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Explore", href: "/explore" },
-    { name: "Your Ideas", href: `/${username}/ideas` },
+    { name: "Your Ideas", href: `/${username}` },
     { name: "Messages", href: "/messages" },
   ];
   const [currentPage] = navigation.filter((obj) => obj.href === asPath);
@@ -99,6 +99,7 @@ export default function Navbar() {
                         <img
                           className="h-8 w-8 rounded-full"
                           src={user.photoURL}
+                          referrerPolicy="no-referrer"
                           alt=""
                         />
                       </Menu.Button>

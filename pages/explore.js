@@ -1,4 +1,4 @@
-import PostFeed from "../components/PostFeed";
+import IdeaFeed from "../components/IdeaFeed";
 import Head from "next/head";
 
 const loremipsum =
@@ -76,7 +76,7 @@ export default function Explore() {
       <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-background md:text-5xl lg:text-6xl dark:text-white">
         Explore
       </h1>
-      <PostFeed posts={dummyPosts} />
+      <IdeaFeed ideas={dummyPosts} />
     </>
   );
 }

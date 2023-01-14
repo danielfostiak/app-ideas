@@ -5,7 +5,7 @@ export default function ErrorPage() {
         Error 404{" "}
       </h1>
       <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-background md:text-5xl lg:text-6xl dark:text-white">
-        That user does not seem to exist.
+        This page does not exist.
       </h1>
     </>
   );
