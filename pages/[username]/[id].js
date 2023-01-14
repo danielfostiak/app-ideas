@@ -1,3 +1,4 @@
+import { create } from "lodash";
 import { firestore, getUserWithUsername, ideaToJSON } from "../../lib/firebase";
 
 export async function getStaticProps({ params }) {
@@ -48,11 +49,16 @@ export async function getStaticPaths() {
 }
 
 export default function IdeaPage({ idea, path }) {
+  const { title, username, createdAt, id, content } = idea;
   return (
     <>
       <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-background md:text-5xl lg:text-6xl dark:text-white">
-        {JSON.stringify(idea)}
+        {title}
       </h1>
+      <p>{content}</p>
+      <p>
+        Created by {username}, at {createdAt}
+      </p>
     </>
   );
 }

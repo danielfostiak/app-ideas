@@ -18,7 +18,7 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Explore", href: "/explore" },
-    { name: "Your Ideas", href: `/${username}` },
+    { name: "Create", href: `/create` },
     { name: "Messages", href: "/messages" },
   ];
   const [currentPage] = navigation.filter((obj) => obj.href === asPath);
