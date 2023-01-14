@@ -59,7 +59,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={
-                          item.name === "Your Ideas"
+                          item.name === "Create" || item.name === "Messages''"
                             ? user
                               ? item.href
                               : "/enter"
