@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 
-export default function CreateIdea() {
+export default function CreateIdea({ handleSubmit }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
@@ -22,6 +22,7 @@ export default function CreateIdea() {
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                       <input
+                        onChange={(e) => setTitle(e.target.value)}
                         type="text"
                         name="company-website"
                         id="company-website"
@@ -39,6 +40,7 @@ export default function CreateIdea() {
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                       <input
+                        onChange={(e) => setDescription(e.target.value)}
                         type="text"
                         name="company-website"
                         id="company-website"
@@ -58,6 +60,7 @@ export default function CreateIdea() {
                   </label>
                   <div className="mt-1">
                     <textarea
+                      onChange={(e) => setContent(e.target.value)}
                       id="description"
                       name="description"
                       rows={10}
@@ -71,6 +74,10 @@ export default function CreateIdea() {
 
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                 <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSubmit(title, description, content);
+                  }}
                   type="submit"
                   className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
